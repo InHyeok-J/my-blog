@@ -1,18 +1,25 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "myBlog",
+    siteUrl: 'https://www.yourdomain.tld',
+    title: 'myBlog',
   },
   plugins: [
-    "gatsby-plugin-emotion",
-    "gatsby-plugin-mdx",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-plugin-typescript',
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        isTSX: true,
+        allExtensions: true,
       },
-      __key: "pages",
+    },
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: './src/pages/',
+      },
+      __key: 'pages',
     },
   ],
-};
+}
