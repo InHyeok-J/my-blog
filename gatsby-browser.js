@@ -1,6 +1,6 @@
 import GlobalStyle from './src/components/Common/GlobalStyle'
 
-export const wrapRoomElement = ({ element }) => (
+export const wrapRootElement = ({ element }) => (
   <div>
     <GlobalStyle />
     {element}
