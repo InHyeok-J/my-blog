@@ -22,6 +22,7 @@ const NavbarList = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  padding: 0 10px;
   width: 768px;
   height: 48px;
   @media (max-width: 768px) {

@@ -40,7 +40,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
     <Container>
       <Navbar />
       <Introduction profileImage={gatsbyImageData} />
-      <CategoryList categoryList={CATEGORY_LIST} />
       <PostList />
       <ShowMore />
       <Footer />
