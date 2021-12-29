@@ -6,14 +6,14 @@ import COLORS from 'utils/Colors'
 const ContactListWrapper = styled.div`
   width: 100%;
   height: auto;
-  padding-left: 20px;
   svg {
     padding-left: 10px;
-    font-size: 35px;
+    font-size: 45px;
+    color: ${COLORS.grey_semi_dark};
   }
   svg:hover {
     cursor: pointer;
-    color: ${COLORS.grey_semi_dark};
+    color: ${COLORS.black};
   }
 `
 
