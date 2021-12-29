@@ -9,6 +9,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image'
 import CategoryList from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
 import ShowMore from 'components/Main/ShowMore'
+import Navbar from 'components/Navbar/Navbar'
 
 const Container = styled.div`
   display: flex;
@@ -37,6 +38,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
 }) => {
   return (
     <Container>
+      <Navbar />
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList categoryList={CATEGORY_LIST} />
       <PostList />

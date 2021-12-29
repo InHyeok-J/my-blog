@@ -23,9 +23,13 @@ const CategoryList: FunctionComponent<CategoryListProps> = ({
   const selectItem = 'WEB'
   return (
     <CategoryListWrapper>
-      {categoryList.map(item => {
+      {categoryList.map((item, index) => {
         console.log(item, item === selectItem)
-        return <CategoryItem active={item === selectItem}>{item}</CategoryItem>
+        return (
+          <CategoryItem active={item === selectItem} key={index}>
+            {item}
+          </CategoryItem>
+        )
       })}
     </CategoryListWrapper>
   )
