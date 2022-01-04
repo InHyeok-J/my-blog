@@ -1,49 +1,36 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import Introduction from 'components/Main/Introduction'
-import Footer from 'components/Common/Footer'
 import COLORS from 'utils/Colors'
 import { graphql } from 'gatsby'
-
-import { IGatsbyImageData } from 'gatsby-plugin-image'
-import CategoryList from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
 import ShowMore from 'components/Main/ShowMore'
-import Navbar from 'components/Navbar/Navbar'
+import { GatsbyImageType, PostListItemType } from '../types/post.types'
+import Template from 'components/Common/Template'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  background-color: ${COLORS.white};
-`
 type IndexPageProps = {
   data: {
-    file: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData
-      }
+    file: GatsbyImageType
+    allMdx: {
+      edges: PostListItemType[]
     }
   }
 }
 
-const CATEGORY_LIST = ['All', 'WEB', 'JavaScript']
 const IndexPage: FunctionComponent<IndexPageProps> = ({
   data: {
     file: {
       childImageSharp: { gatsbyImageData },
     },
+    allMdx: { edges },
   },
 }) => {
   return (
-    <Container>
-      <Navbar />
+    <Template>
       <Introduction profileImage={gatsbyImageData} />
-      <PostList />
+      <PostList posts={edges} />
       <ShowMore />
-      <Footer />
-    </Container>
+    </Template>
   )
 }
 
@@ -54,6 +41,26 @@ export const getMyInfo = graphql`
     file(name: { eq: "profile-image" }) {
       childImageSharp {
         gatsbyImageData(width: 120, height: 120)
+      }
+    }
+    allMdx(sort: { order: DESC, fields: frontmatter___date }, limit: 4) {
+      edges {
+        node {
+          frontmatter {
+            date
+            summary
+            tags
+            category
+            title
+            bannerImage {
+              childImageSharp {
+                gatsbyImageData(width: 768, height: 400)
+              }
+            }
+          }
+          id
+          slug
+        }
       }
     }
   }

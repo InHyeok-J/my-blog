@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import PostItem from './PostItem'
 import COLORS from 'utils/Colors'
+import { PostListItemType } from 'types/post.types'
 
 const Container = styled.div`
   width: 768px;
@@ -41,15 +42,18 @@ const POST_ITEM_DATA = {
   link: '<https://www.google.co.kr/>',
 }
 
-const PostList: FunctionComponent = () => {
+type PostListProps = {
+  posts: PostListItemType[]
+}
+
+const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
   return (
     <Container>
       <Text>Look at recent posts</Text>
       <PostListWrapper>
-        <PostItem {...POST_ITEM_DATA} />
-        <PostItem {...POST_ITEM_DATA} />
-        <PostItem {...POST_ITEM_DATA} />
-        <PostItem {...POST_ITEM_DATA} />
+        {posts.map(post => (
+          <PostItem post={post} key={post.node.id} />
+        ))}
       </PostListWrapper>
     </Container>
   )

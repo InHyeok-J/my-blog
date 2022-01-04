@@ -1,19 +1,11 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React, { FunctionComponent } from 'react'
 import { FaTag } from 'react-icons/fa'
 import { FiHash } from 'react-icons/fi'
+import { PostListItemType } from 'types/post.types'
 import COLORS from 'utils/Colors'
-
-type PostItemProps = {
-  title: string
-  date: string
-  category: string
-  tags: string[]
-  summary: string
-  banner: string
-  link: string
-}
 
 const PostItemWrapper = styled(Link)`
   display: flex;
@@ -27,7 +19,7 @@ const PostItemWrapper = styled(Link)`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 `
-const ThumbnailImage = styled.img`
+const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
   height: 200px;
   border-radius: 10px 10px 0 0;
@@ -100,19 +92,30 @@ const Summary = styled.div`
   font-size: 16px;
   opacity: 0.8;
 `
-
+type PostItemProps = {
+  post: PostListItemType
+}
 const PostItem: FunctionComponent<PostItemProps> = ({
-  title,
-  date,
-  category,
-  tags,
-  summary,
-  banner,
-  link,
+  post: {
+    node: {
+      frontmatter: {
+        title,
+        date,
+        summary,
+        tags,
+        category,
+        bannerImage: {
+          childImageSharp: { gatsbyImageData },
+        },
+      },
+      id,
+      slug,
+    },
+  },
 }) => {
   return (
-    <PostItemWrapper to={link}>
-      <ThumbnailImage src={banner} alt="Post" />
+    <PostItemWrapper to={slug}>
+      <ThumbnailImage image={gatsbyImageData} alt="Post" />
       <PostItemContent>
         <Title>{title}</Title>
         <Date>{date}</Date>
