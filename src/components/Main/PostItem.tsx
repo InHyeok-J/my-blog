@@ -114,7 +114,7 @@ const PostItem: FunctionComponent<PostItemProps> = ({
   },
 }) => {
   return (
-    <PostItemWrapper to={slug}>
+    <PostItemWrapper to={`posts/${slug}`}>
       <ThumbnailImage image={gatsbyImageData} alt="Post" />
       <PostItemContent>
         <Title>{title}</Title>

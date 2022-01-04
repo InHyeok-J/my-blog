@@ -6,6 +6,7 @@ import COLORS from 'utils/Colors'
 
 type ItemProps = {
   active: boolean
+  viewPost: boolean
 }
 
 type GatsbyLinkProps = {
@@ -14,12 +15,12 @@ type GatsbyLinkProps = {
   to: string
 } & ItemProps
 
-const Item = styled(({ active, ...props }: GatsbyLinkProps) => (
+const Item = styled(({ active, viewPost, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
 ))`
   width: 50px;
   height: 48px;
-  color: ${({ active }) => (active ? COLORS.black : COLORS.grey_semi_dark)};
+  color: ${({ viewPost }) => (viewPost ? COLORS.white : COLORS.grey_semi_dark)};
   font-weight: ${({ active }) => (active ? 'bold' : 'none')};
   svg {
     position: relative;
@@ -43,23 +44,20 @@ type NavbarItemProps = {
   to: string
   label: string
   Icon: IconType
+  path: string
+  viewPost: boolean
 }
 
 const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   to,
   label,
   Icon,
+  path,
+  viewPost,
 }) => {
-  console.log(window.location.pathname)
-  const activePath =
-    window.location.pathname === '/'
-      ? 'home'
-      : window.location.pathname.split('/')[1]
-  const upperPath =
-    activePath[0].toUpperCase() + activePath.slice(1, activePath.length)
   return (
     <NavbarItemWrapper>
-      <Item to={to} active={upperPath === label}>
+      <Item to={to} active={path === label} viewPost={viewPost}>
         <Icon />
         {label}
       </Item>

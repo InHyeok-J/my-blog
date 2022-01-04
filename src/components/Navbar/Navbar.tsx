@@ -1,21 +1,26 @@
 import React, { FunctionComponent } from 'react'
-import { FaHome, FaUserAlt, FaSearch } from 'react-icons/fa'
+import { FaHome, FaUserAlt } from 'react-icons/fa'
 import { BsPencilSquare } from 'react-icons/bs'
 import { IoBook } from 'react-icons/io5'
 import styled from '@emotion/styled'
 import NavbarItem from './NavbarItem'
-import { StaticImage } from 'gatsby-plugin-image'
+import COLORS from 'utils/Colors'
 
-const NavbarWrapper = styled.div`
-  position: sticky;
+type NavbarWrapperProps = {
+  viewPost: boolean
+}
+const NavbarWrapper = styled.div<NavbarWrapperProps>`
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
   width: 100%;
   height: 48px;
-  border-bottom: 2px solid rgb(234, 235, 236);
+  border-bottom: 2px solid
+    ${({ viewPost }) => (viewPost ? 'none' : COLORS.border_bottom_color)};
   backdrop-filter: blur(7px);
+  /* background-color: ${props => (props.viewPost ? COLORS.black : 'none')}; */
 `
 const NavbarList = styled.div`
   display: flex;
@@ -33,8 +38,12 @@ const NavbarList = styled.div`
     justify-content: center;
   }
 `
+type IconBlockProps = {
+  viewPost: boolean
+}
 
-const IconBlock = styled.div`
+const IconBlock = styled.div<IconBlockProps>`
+  color: ${({ viewPost }) => (viewPost ? COLORS.white : COLORS.grey_semi_dark)};
   @media (max-width: 500px) {
     display: none;
   }
@@ -69,13 +78,26 @@ const Navbar: FunctionComponent = () => {
       Icon: FaUserAlt,
     },
   ]
+  const activePath =
+    window.location.pathname === '/'
+      ? 'home'
+      : window.location.pathname.split('/')[1]
+  const upperPath =
+    activePath[0].toUpperCase() + activePath.slice(1, activePath.length)
+  const viewPost = window.location.pathname.split('/')[2] ? true : false
+
   return (
-    <NavbarWrapper>
+    <NavbarWrapper viewPost={viewPost} id="Navbar">
       <NavbarList>
-        <IconBlock>Don’t dream it, be it</IconBlock>
+        <IconBlock viewPost={viewPost}>Don’t dream it, be it</IconBlock>
         <ItemBlock>
           {items.map(item => (
-            <NavbarItem key={item.label} {...item} />
+            <NavbarItem
+              key={item.label}
+              {...item}
+              path={upperPath}
+              viewPost={viewPost}
+            />
           ))}
         </ItemBlock>
       </NavbarList>

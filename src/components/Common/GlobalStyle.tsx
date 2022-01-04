@@ -14,8 +14,7 @@ const defaultStyle = css`
     height: 100%;
   }
 
-  a,
-  a:hover {
+  a {
     color: inherit;
     text-decoration: none;
     cursor: pointer;

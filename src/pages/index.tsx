@@ -1,7 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import styled from '@emotion/styled'
 import Introduction from 'components/Main/Introduction'
-import COLORS from 'utils/Colors'
 import { graphql } from 'gatsby'
 import PostList from 'components/Main/PostList'
 import ShowMore from 'components/Main/ShowMore'
