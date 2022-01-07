@@ -13,6 +13,9 @@ const PostContextWrapper = styled.div`
   margin: 0 auto;
   padding: 100px 10px;
   word-break: break-all;
+  border: 1px solid rgb(245, 245, 245);
+
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
   @media (max-width: 768px) {
     width: 100%;
     padding: 100px 20px;
@@ -155,36 +158,11 @@ const MarkdownWrapper = styled.div`
     text-align: left;
     padding: 0.5rem;
   }
-  .active {
-    border-left: 4px solid rgb(203, 102, 93);
-    color: rgb(203, 102, 93);
-  }
-  .table-of-contents {
-    width: 200px;
-    height: fit-content;
-    position: fixed;
-    right: calc((100vw - 1080px) * 0.45);
-    top: 200px;
-    ul {
-      margin: 13px;
-      list-style: none;
-    }
-    a {
-      padding-left: 5px;
-      height: 20px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 100%;
-    }
-    a:hover {
-      border-left: 4px solid rgb(203, 102, 93);
-      color: rgb(203, 102, 93);
-    }
-  }
-  @media (max-width: 1100px) {
-    .table-of-contents {
-      display: none;
-    }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0;
   }
   @media (max-width: 765px) {
     img {
@@ -193,7 +171,7 @@ const MarkdownWrapper = styled.div`
   }
   @media (max-width: 480px) {
     img {
-      max-width: 300px;
+      max-width: 260px;
     }
   }
   margin-bottom: 50px;
