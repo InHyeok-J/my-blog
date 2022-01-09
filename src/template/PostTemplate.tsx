@@ -3,6 +3,7 @@ import Template from 'components/Common/Template'
 import PostContent from 'components/Post/PostContext'
 import PostHead from 'components/Post/PostHead'
 import TableOfContents, { ItemType } from 'components/Post/TableOfContents'
+import Utterances from 'components/Post/Utterances'
 import { graphql } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import { PostFrontmatterType, PrevNextTypes } from 'types/post.types'
@@ -60,6 +61,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
       />
       <PostContent body={body} />
       <NextPage context={pageContext} />
+      <Utterances />
     </Template>
   )
 }
