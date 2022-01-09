@@ -12,7 +12,32 @@ module.exports = {
       },
     },
     'gatsby-plugin-emotion',
-    'gatsby-plugin-mdx',
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: ['.md', '.mdx'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 700,
+              sizeByPixelDensity: true,
+            },
+          },
+
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              className: 'anchor-header',
+              icon: false,
+              maintainCase: false,
+              removeAccents: true,
+              elements: [`h1`, `h2`, `h3`],
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

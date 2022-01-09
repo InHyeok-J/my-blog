@@ -20,7 +20,7 @@ const TableOfContentsWrapper = styled.div`
   height: fit-content;
   position: fixed;
   right: calc((100vw - 1180px) * 0.45);
-  top: 300px;
+  top: 350px;
   font-size: 18px;
   color: ${COLORS.grey_semi_dark};
   z-index: 3;
@@ -106,7 +106,6 @@ const findCurrentTag = (elementsArray: any[]) => {
   const navbarElement = document.getElementById('Navbar') // Navbar Element를 가져옴.
   const NavBarHeight =
     navbarElement !== (undefined || null) ? navbarElement.offsetHeight : 0 //navbar
-
   const middleHeight = window.scrollY + window.innerHeight / 2 - NavBarHeight
 
   return elementsArray.reduce((pre, cur) => {

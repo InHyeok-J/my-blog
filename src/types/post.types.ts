@@ -22,3 +22,10 @@ export type PostListItemType = {
     frontmatter: PostFrontmatterType
   }
 }
+
+export type PrevNextTypes = {
+  frontmatter: {
+    title: string
+  }
+  slug: string
+}

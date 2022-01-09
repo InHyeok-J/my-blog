@@ -16,3 +16,52 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
     },
   })
 }
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+
+  const allPost = await graphql(
+    `
+      {
+        allMdx(
+          sort: {
+            order: DESC
+            fields: [frontmatter___date, frontmatter___title]
+          }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+              slug
+            }
+          }
+        }
+      }
+    `,
+  )
+
+  if (allPost.errors) {
+    reporter.panicOnBuild(`Error while running query`)
+    return
+  }
+
+  const PostTemplateComponent = path.resolve(
+    __dirname,
+    'src/template/PostTemplate.tsx',
+  )
+
+  const posts = allPost.data.allMdx.edges
+  posts.forEach((NODE, index) => {
+    actions.createPage({
+      path: `posts/` + NODE.node.slug,
+      component: PostTemplateComponent,
+      context: {
+        slug: NODE.node.slug,
+        prev: index === posts.length - 1 ? null : posts[index + 1].node,
+        next: index === 0 ? null : posts[index - 1].node,
+      },
+    })
+  })
+}

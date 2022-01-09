@@ -11,14 +11,18 @@ const PostContextWrapper = styled.div`
   flex-direction: column;
   width: 768px;
   margin: 0 auto;
-  padding: 100px 10px;
+  padding: 50px 10px;
   word-break: break-all;
-  border: 1px solid rgb(245, 245, 245);
+  border-left: 1px solid rgb(245, 245, 245);
+  border-right: 1px solid rgb(245, 245, 245);
+  box-shadow: 5px 0px 4px -4px rgb(0 0 0 / 10%),
+    -5px 0px 4px -4px rgb(0 0 0 / 10%);
 
-  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
+  /* box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%), 0 -2px 5px 0 rgb(0 0 0 / 10%); */
+
   @media (max-width: 768px) {
     width: 100%;
-    padding: 100px 20px;
+    padding: 50px 20px;
   }
 `
 

@@ -1,10 +1,11 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect, useRef } from 'react'
 import { FaHome, FaUserAlt } from 'react-icons/fa'
 import { BsPencilSquare } from 'react-icons/bs'
 import { IoBook } from 'react-icons/io5'
 import styled from '@emotion/styled'
 import NavbarItem from './NavbarItem'
 import COLORS from 'utils/Colors'
+import { toFit } from 'utils//ScrollEvent'
 
 type NavbarWrapperProps = {
   viewPost: boolean
@@ -20,7 +21,8 @@ const NavbarWrapper = styled.div<NavbarWrapperProps>`
   border-bottom: 2px solid
     ${({ viewPost }) => (viewPost ? 'none' : COLORS.border_bottom_color)};
   backdrop-filter: blur(7px);
-  /* background-color: ${props => (props.viewPost ? COLORS.black : 'none')}; */
+  background-color: ${props =>
+    props.viewPost ? 'rgba(39, 38, 38, 0.5)' : 'none'};
 `
 const NavbarList = styled.div`
   display: flex;

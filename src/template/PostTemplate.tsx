@@ -1,10 +1,11 @@
+import NextPage from 'components/Common/NextPage'
 import Template from 'components/Common/Template'
 import PostContent from 'components/Post/PostContext'
 import PostHead from 'components/Post/PostHead'
 import TableOfContents, { ItemType } from 'components/Post/TableOfContents'
 import { graphql } from 'gatsby'
 import React, { FunctionComponent } from 'react'
-import { PostFrontmatterType } from 'types/post.types'
+import { PostFrontmatterType, PrevNextTypes } from 'types/post.types'
 
 type PostTemplateProps = {
   data: {
@@ -20,6 +21,8 @@ type PostTemplateProps = {
   }
   pageContext: {
     slug: string
+    prev: null | PrevNextTypes
+    next: null | PrevNextTypes
   }
 }
 
@@ -44,6 +47,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
   },
   pageContext,
 }) => {
+  console.log(pageContext)
   return (
     <Template>
       {tableOfContents && <TableOfContents contents={tableOfContents} />}
@@ -55,6 +59,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
         bannerImage={gatsbyImageData}
       />
       <PostContent body={body} />
+      <NextPage context={pageContext} />
     </Template>
   )
 }
