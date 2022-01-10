@@ -22,6 +22,7 @@ const Title = styled.div`
 const SubTitle = styled.div`
   font-size: 32px;
   margin-left: 10px;
+  margin-top: 10px;
   font-weight: 500;
   color: ${COLORS.grey_semi_dark};
   svg {
