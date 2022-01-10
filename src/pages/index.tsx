@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import Introduction from 'components/Main/Introduction'
 import { graphql } from 'gatsby'
-import PostList from 'components/Main/PostList'
+import PostList from 'components/Common/PostList'
 import ShowMore from 'components/Main/ShowMore'
 import { GatsbyImageType, PostListItemType } from '../types/post.types'
 import Template from 'components/Common/Template'
+import queryString, { ParsedQuery } from 'query-string'
 
 type IndexPageProps = {
   data: {
@@ -12,6 +13,9 @@ type IndexPageProps = {
     allMdx: {
       edges: PostListItemType[]
     }
+  }
+  location: {
+    pathname: string
   }
 }
 

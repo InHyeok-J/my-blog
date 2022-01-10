@@ -25,13 +25,19 @@
     "gatsby-plugin-mdx": "^3.4.0",
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-plugin-typescript": "^4.4.0",
+    "gatsby-remark-autolink-headers": "^5.4.0",
     "gatsby-remark-images": "^6.4.0",
+    "gatsby-remark-table-of-contents": "^1.0.0",
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
+    "mdx-utils": "^0.2.0",
+    "prism-react-renderer": "^1.2.1",
+    "prismjs": "^1.25.0",
     "query-string": "^7.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "remark-emoji": "^3.0.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.8.1",

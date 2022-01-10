@@ -98,7 +98,7 @@ const NextPage: FunctionComponent<NextPageTypes> = ({
     <NextPageWrapper>
       <BlockContainer>
         {prev && (
-          <LinkWrapper to={`/posts/${prev.slug}`} className="left-block">
+          <LinkWrapper to={`/post/${prev.slug}`} className="left-block">
             <AiOutlineArrowLeft />
             <Title>{prev.frontmatter.title}</Title>
           </LinkWrapper>
@@ -107,7 +107,7 @@ const NextPage: FunctionComponent<NextPageTypes> = ({
 
       <BlockContainer>
         {next && (
-          <LinkWrapper to={`/posts/${next.slug}`} className="right-block">
+          <LinkWrapper to={`/post/${next.slug}`} className="right-block">
             <AiOutlineArrowRight />
             <Title>{next.frontmatter.title}</Title>
           </LinkWrapper>

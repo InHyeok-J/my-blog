@@ -17,7 +17,7 @@ type TemplateProps = {
 
 const Template: FunctionComponent<TemplateProps> = ({ children }) => {
   return (
-    <Container>
+    <Container className="screen-box">
       <Navbar />
       {children}
       <Footer />

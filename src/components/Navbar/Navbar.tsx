@@ -5,7 +5,6 @@ import { IoBook } from 'react-icons/io5'
 import styled from '@emotion/styled'
 import NavbarItem from './NavbarItem'
 import COLORS from 'utils/Colors'
-import { toFit } from 'utils//ScrollEvent'
 
 type NavbarWrapperProps = {
   viewPost: boolean
@@ -18,8 +17,8 @@ const NavbarWrapper = styled.div<NavbarWrapperProps>`
   z-index: 100;
   width: 100%;
   height: 48px;
-  border-bottom: 2px solid
-    ${({ viewPost }) => (viewPost ? 'none' : COLORS.border_bottom_color)};
+  /* border-bottom: 2px solid
+    ${({ viewPost }) => (viewPost ? 'none' : COLORS.border_bottom_color)}; */
   backdrop-filter: blur(7px);
   background-color: ${props =>
     props.viewPost ? 'rgba(39, 38, 38, 0.5)' : 'none'};

@@ -19,10 +19,12 @@ const ShowMoreButton = styled.button`
   margin-right: 20px;
   padding: 5px 8px;
   font-size: 18px;
-  background-color: ${COLORS.grey_light};
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+
+  background-color: ${COLORS.white};
   cursor: pointer;
   &:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   }
 `
 

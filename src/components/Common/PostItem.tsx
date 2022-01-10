@@ -10,19 +10,19 @@ import COLORS from 'utils/Colors'
 const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.15); */
   transition: 0.3s box-shadow;
   cursor: pointer;
-
+  padding: 10px;
   &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
 `
 const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
   height: 200px;
-  border-radius: 10px 10px 0 0;
+  /* border-radius: 10px 10px 0 0; */
   object-fit: cover;
 `
 
@@ -30,7 +30,7 @@ const PostItemContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 15px 0;
 `
 const Title = styled.div`
   display: -webkit-box;
@@ -90,6 +90,7 @@ const Summary = styled.div`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 16px;
+  color: ${COLORS.grey_semi_dark};
   opacity: 0.8;
 `
 type PostItemProps = {
@@ -114,7 +115,7 @@ const PostItem: FunctionComponent<PostItemProps> = ({
   },
 }) => {
   return (
-    <PostItemWrapper to={`posts/${slug}`}>
+    <PostItemWrapper to={`/post/${slug}`}>
       <ThumbnailImage image={gatsbyImageData} alt="Post" />
       <PostItemContent>
         <Title>{title}</Title>

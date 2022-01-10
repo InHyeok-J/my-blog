@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const posts = allPost.data.allMdx.edges
   posts.forEach((NODE, index) => {
     actions.createPage({
-      path: `posts/` + NODE.node.slug,
+      path: `post/` + NODE.node.slug,
       component: PostTemplateComponent,
       context: {
         slug: NODE.node.slug,

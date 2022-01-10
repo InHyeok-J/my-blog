@@ -8,6 +8,9 @@ const defaultStyle = css`
     box-sizing: border-box;
   }
 
+  html {
+    overflow-y: scroll;
+  }
   html,
   body,
   #___gatsby {
