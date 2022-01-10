@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import COLORS from 'utils/Colors'
 
@@ -13,7 +14,7 @@ const ShowMoreWrapper = styled.div`
     padding: 10px 20px;
   }
 `
-const ShowMoreButton = styled.button`
+const ShowMoreButton = styled(Link)`
   border-style: none;
   border-radius: 5px;
   margin-right: 20px;
@@ -33,7 +34,7 @@ const ShowMoreButton = styled.button`
 const ShowMore: FunctionComponent = () => {
   return (
     <ShowMoreWrapper>
-      <ShowMoreButton>SHOW MORE</ShowMoreButton>
+      <ShowMoreButton to={'/posts'}>SHOW MORE</ShowMoreButton>
     </ShowMoreWrapper>
   )
 }
