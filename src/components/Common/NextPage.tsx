@@ -54,11 +54,11 @@ const Title = styled.div`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   @media (max-width: 768px) {
-    max-height: 30px;
+    max-height: 35px;
   }
 `
 const LinkWrapper = styled(Link)`
-  height: 100px;
+  height: auto;
   font-size: 24px;
   color: ${COLORS.grey_semi_dark};
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
