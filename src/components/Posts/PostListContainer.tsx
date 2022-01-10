@@ -18,7 +18,7 @@ const PostListContainer: FunctionComponent<PostListContainerProps> = ({
     }: PostListItemType) =>
       selectedCategory !== 'All' ? category === selectedCategory : true,
   )
-  return <PostList posts={filterData} className="screen-box" />
+  return <PostList posts={filterData} />
 }
 
 export default PostListContainer

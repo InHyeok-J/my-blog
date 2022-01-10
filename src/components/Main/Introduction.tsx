@@ -23,7 +23,7 @@ const Title = styled.h1`
 `
 const SubTitle = styled.p`
   line-height: 30px;
-  color: ${COLORS.grey_dark};
+  color: ${COLORS.grey_semi_dark};
   font-size: 21px;
   @media (max-width: 768px) {
     font-size: 16px;
@@ -48,7 +48,7 @@ const TextBlock = styled.div`
 
 const Line = styled.span`
   width: 150px;
-  border-bottom: 2px solid ${COLORS.grey_dark};
+  border-bottom: 2px solid ${COLORS.grey_semi_dark};
   margin: 10px 0;
 `
 

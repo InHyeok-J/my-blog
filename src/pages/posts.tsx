@@ -58,11 +58,7 @@ const PostsPage: FunctionComponent<PostsPateType> = ({
         categoryList={categoryList}
         selectedCategory={selectedCategory}
       />
-      <PostListContainer
-        posts={edges}
-        selectedCategory={selectedCategory}
-        className="screenBox"
-      />
+      <PostListContainer posts={edges} selectedCategory={selectedCategory} />
     </Template>
   )
 }

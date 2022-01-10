@@ -11,7 +11,7 @@ const PostHeadInfoWrapper = styled.div`
   width: 768px;
   height: 100%;
   margin: 0 auto;
-  padding: 60px 10px 0;
+  padding: 60px 10px 20px;
   color: ${COLORS.white};
   @media (max-width: 768px) {
     width: 100%;
@@ -42,8 +42,8 @@ const Title = styled.div`
   white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 38px;
+  font-weight: bold;
   @media (max-width: 768px) {
     margin-top: 70px;
   }

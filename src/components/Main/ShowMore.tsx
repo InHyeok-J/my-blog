@@ -19,6 +19,8 @@ const ShowMoreButton = styled.button`
   margin-right: 20px;
   padding: 5px 8px;
   font-size: 18px;
+  font-weight: bold;
+  color: ${COLORS.grey_semi_dark};
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 
   background-color: ${COLORS.white};
