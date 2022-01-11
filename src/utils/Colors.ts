@@ -3,6 +3,7 @@ const COLORS: colorListType = {
   grey_semi_dark: '#444444',
   grey_normal: '#c4c4c4',
   grey_light: '#f2f2f2',
+  grey_nomarl_dark: '#848484',
   black: '#000000',
   white: '#ffffff',
   red_warm: '#ff4f4f',
@@ -14,6 +15,7 @@ type colorListType = {
   grey_semi_dark: string
   grey_normal: string
   grey_light: string
+  grey_nomarl_dark: string
   black: string
   white: string
   red_warm: string
