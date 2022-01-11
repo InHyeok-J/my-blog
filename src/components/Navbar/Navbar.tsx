@@ -17,8 +17,6 @@ const NavbarWrapper = styled.div<NavbarWrapperProps>`
   z-index: 100;
   width: 100%;
   height: 48px;
-  /* border-bottom: 2px solid
-    ${({ viewPost }) => (viewPost ? 'none' : COLORS.border_bottom_color)}; */
   backdrop-filter: blur(7px);
   background-color: ${props =>
     props.viewPost ? 'rgba(39, 38, 38, 0.5)' : 'none'};
@@ -41,10 +39,15 @@ const NavbarList = styled.div`
 `
 type IconBlockProps = {
   viewPost: boolean
+  viewAbout: boolean
 }
 
 const IconBlock = styled.div<IconBlockProps>`
-  color: ${({ viewPost }) => (viewPost ? COLORS.white : COLORS.grey_semi_dark)};
+  color: ${({ viewPost, viewAbout }) => {
+    if (viewPost) return COLORS.white
+    else if (viewAbout) return COLORS.white
+    else return COLORS.grey_semi_dark
+  }};
   @media (max-width: 500px) {
     display: none;
   }
@@ -86,11 +89,13 @@ const Navbar: FunctionComponent = () => {
   const upperPath =
     activePath[0].toUpperCase() + activePath.slice(1, activePath.length)
   const viewPost = window.location.pathname.split('/')[2] ? true : false
-
+  const viewAbout = activePath === 'about' ? true : false
   return (
     <NavbarWrapper viewPost={viewPost} id="Navbar">
       <NavbarList>
-        <IconBlock viewPost={viewPost}>Don’t dream it, be it</IconBlock>
+        <IconBlock viewPost={viewPost} viewAbout={viewAbout}>
+          Don’t dream it, be it
+        </IconBlock>
         <ItemBlock>
           {items.map(item => (
             <NavbarItem
@@ -98,6 +103,7 @@ const Navbar: FunctionComponent = () => {
               {...item}
               path={upperPath}
               viewPost={viewPost}
+              viewAbout={viewAbout}
             />
           ))}
         </ItemBlock>

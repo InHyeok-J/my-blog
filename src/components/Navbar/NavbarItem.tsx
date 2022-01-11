@@ -7,6 +7,7 @@ import COLORS from 'utils/Colors'
 type ItemProps = {
   active: boolean
   viewPost: boolean
+  viewAbout: boolean
 }
 
 type GatsbyLinkProps = {
@@ -15,12 +16,17 @@ type GatsbyLinkProps = {
   to: string
 } & ItemProps
 
-const Item = styled(({ active, viewPost, ...props }: GatsbyLinkProps) => (
-  <Link {...props} />
-))`
+const Item = styled(
+  ({ active, viewAbout, viewPost, ...props }: GatsbyLinkProps) => (
+    <Link {...props} />
+  ),
+)`
   width: 50px;
   height: 48px;
-  color: ${({ viewPost }) => (viewPost ? COLORS.white : COLORS.grey_semi_dark)};
+  color: ${({ viewPost, viewAbout }) => {
+    if (viewPost || viewAbout) return COLORS.white
+    else return COLORS.grey_semi_dark
+  }};
   font-weight: ${({ active }) => (active ? 'bold' : 'none')};
   svg {
     position: relative;
@@ -46,6 +52,7 @@ type NavbarItemProps = {
   Icon: IconType
   path: string
   viewPost: boolean
+  viewAbout: boolean
 }
 
 const NavbarItem: FunctionComponent<NavbarItemProps> = ({
@@ -54,10 +61,16 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   Icon,
   path,
   viewPost,
+  viewAbout,
 }) => {
   return (
     <NavbarItemWrapper>
-      <Item to={to} active={path === label} viewPost={viewPost}>
+      <Item
+        to={to}
+        active={path === label}
+        viewPost={viewPost}
+        viewAbout={viewAbout}
+      >
         <Icon />
         {label}
       </Item>
